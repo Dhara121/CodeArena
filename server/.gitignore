@@ -1,0 +1,30 @@
+ # Node.js modules
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Logs
+logs/
+*.log
+*.log.*
+
+# IDE/editor configs
+.vscode/
+.idea/
+.DS_Store
+
+# OS/system files
+Thumbs.db
+
+# Build artifacts (if any)
+dist/
+build/
+coverage/
+
