@@ -1,0 +1,36 @@
+services:
+  - type: web
+    name: codearena-backend
+    env: node
+    plan: free
+    buildCommand: cd server && npm install
+    startCommand: cd server && npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 5000
+      - key: CLIENT_URL
+        value: https://codearena-frontend.onrender.com
+      - key: MONGODB_URI
+        value: mongodb+srv://pantdhara5:XFepqxMqQizKLUdX@cluster0.x94eaox.mongodb.net/codearena
+      - key: JDOODLE_CLIENT_ID
+        value: b6aec0fe029407892d038d902360f5ab
+      - key: JDOODLE_CLIENT_SECRET
+        value: 345a503fc23cfdb92e5e0c9ca999f1178de74049075573eddeb036c34ade85ed
+      - key: JWT_SECRET
+        value: cdf59ad47cf1c75ff48daf760ff3506dbdc745682efa103caf2ff1c2270c68ecfc8fc22afa493219e727975984ee92bc40ffea427d6422da00a4f95706efa8af
+
+  - type: web
+    name: codearena-frontend
+    env: static
+    plan: free
+    buildCommand: cd client && npm install && npm run build
+    staticPublishPath: client/dist
+    envVars:
+      - key: VITE_API_URL
+        value: https://codearena-backend.onrender.com/api
+      - key: VITE_APP_NAME
+        value: CodeArena
+      - key: VITE_APP_VERSION
+        value: 1.0.0
