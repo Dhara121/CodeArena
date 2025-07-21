@@ -19,4 +19,15 @@ router.post('/validate', protect, validateCode);
 router.get('/languages', getSupportedLanguages);
 router.get('/credits', protect, getCreditInfo);
 
+const {
+  saveCode,
+  getSavedCodes,
+  deleteCode,
+} = require('../controllers/savedCodeController'); // Adjust path if different
+
+router.post('/save', protect, saveCode);
+router.get('/saved', protect, getSavedCodes);
+router.delete('/:id', protect, deleteCode);
+
+
 module.exports = router;
